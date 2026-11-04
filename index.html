@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中期选举后，特朗普还会打伊朗吗？· 动力与报复路径推演</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232d; --line:#2a3240;
+    --txt:#e6edf3; --muted:#9aa7b4; --accent:#e8b84b; --accent2:#4aa3ff;
+    --red:#ff6b6b; --green:#39d98a; --amber:#f0a85a; --chip:#232c38;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px 80px}
+
+  header{padding:54px 20px 40px;text-align:center;background:radial-gradient(1200px 300px at 50% -40%,rgba(255,107,107,.18),transparent),linear-gradient(180deg,#131922,#0e1116);border-bottom:1px solid var(--line)}
+  header .kicker{color:var(--accent);letter-spacing:3px;font-size:13px;font-weight:600}
+  header h1{font-size:29px;margin:14px 0 10px;font-weight:800;line-height:1.35}
+  header .sub{color:var(--muted);font-size:15px;max-width:720px;margin:0 auto}
+  .meta{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .meta span{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:12.5px;color:var(--muted)}
+
+  /* Verdict banner */
+  .verdict{margin:34px 0 10px;background:linear-gradient(135deg,rgba(255,107,107,.12),rgba(232,184,75,.08));border:1px solid rgba(255,107,107,.35);border-left:4px solid var(--red);border-radius:14px;padding:22px 26px}
+  .verdict .lab{color:var(--red);font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+  .verdict p{font-size:17px;color:#f0e6d8;font-weight:600;line-height:1.7}
+  .verdict .hl{color:var(--accent)} .verdict .hg{color:var(--green)}
+
+  section{margin-top:46px}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .sec-head .no{flex:none;width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--red),#c23b3b);display:grid;place-items:center;font-weight:800;font-size:16px;color:#fff}
+  .sec-head h2{font-size:21px;font-weight:800}
+
+  /* Motive cards (3 reasons) */
+  .motives{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .mcard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:18px}
+  .mcard .ic{font-size:22px;margin-bottom:8px}
+  .mcard h4{font-size:15.5px;color:#fff;margin-bottom:8px}
+  .mcard p{font-size:14px;color:#d4dde6}
+
+  /* Constraint callout */
+  .constraint{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .constraint .big{font-size:16px;color:#fff;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .constraint .big .dot{width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+  .constraint ul{list-style:none;display:grid;gap:10px;margin-top:6px}
+  .constraint li{padding-left:24px;position:relative;font-size:14.5px;color:#d4dde6}
+  .constraint li::before{content:"→";position:absolute;left:0;color:var(--amber);font-weight:800}
+  .quote{margin-top:14px;padding:12px 16px;border-left:3px solid var(--muted);background:var(--panel2);border-radius:0 8px 8px 0;font-style:italic;color:#c3ccd5;font-size:14px}
+
+  /* Measures table */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:var(--panel2);color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.5px}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;color:#fff}
+  .prob{font-weight:800;white-space:nowrap;text-align:center}
+  .p-hi{color:var(--red)} .p-mh{color:var(--amber)} .p-mid{color:var(--accent)} .p-lo{color:var(--muted)}
+  .bar{height:6px;border-radius:3px;margin-top:6px;background:var(--line);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:3px}
+
+  /* Picture / conclusion */
+  .pic{background:linear-gradient(135deg,rgba(72,163,255,.1),rgba(57,217,138,.06));border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+  .pic .quote-lg{font-size:17px;color:#eaf2fa;font-weight:600;line-height:1.8;border-left:4px solid var(--accent2);padding-left:18px}
+  .pic .twoline{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pic .mini{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px}
+  .pic .mini b{display:block;margin-bottom:5px}
+  .mini.yes b{color:var(--green)} .mini.no b{color:var(--red)}
+
+  /* Risk */
+  .risks{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .rcard{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:12px;padding:18px}
+  .rcard h4{color:var(--red);font-size:15px;margin-bottom:8px}
+  .rcard p{font-size:14px;color:#d4dde6}
+
+  /* Monitor tie-in */
+  .monitor{background:rgba(72,163,255,.08);border:1px solid rgba(72,163,255,.35);border-radius:12px;padding:20px 22px}
+  .monitor h4{color:var(--accent2);font-size:15.5px;margin-bottom:10px}
+  .monitor ul{list-style:none;display:grid;gap:9px}
+  .monitor li{padding-left:22px;position:relative;font-size:14.5px;color:#d4dde6}
+  .monitor li::before{content:"◆";position:absolute;left:0;color:var(--accent2);font-size:11px;top:3px}
+  .monitor code{background:var(--chip);padding:2px 7px;border-radius:5px;font-size:13px;color:var(--accent)}
+
+  .hl{color:var(--accent);font-weight:700} .hl2{color:var(--accent2);font-weight:700}
+
+  footer{margin-top:50px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:12.5px}
+  footer a{color:var(--accent2);text-decoration:none}
+
+  @media(max-width:680px){
+    .pic .twoline,.risks{grid-template-columns:1fr}
+    header h1{font-size:23px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">地缘研判简报 · 情景推演</div>
+  <h1>中期选举后，特朗普还会继续打伊朗吗？</h1>
+  <p class="sub">动力是否还在 · 会用什么形式 · 报复性措施路径排序 —— 一份基于海外机构分析的综合判断</p>
+  <div class="meta">
+    <span>背景：民主党翻盘两院</span>
+    <span>过渡窗口：至 2027-01-03</span>
+    <span>生成：2026-11</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="verdict">
+    <div class="lab">核心结论</div>
+    <p>打仗的动力<span class="hl">不仅没消失，反而在过渡窗口期被放大</span>了；但形式更可能是<span class="hl">「短促决定性一击 + 非军事报复」</span>，而<span class="hg">不是</span>开启长期大规模战争。<br>
+    简言之：<span class="hl">「还想不想打」= 想</span>；<span class="hg">「会不会陷进去」= 大概率不会</span>。</p>
+  </div>
+
+  <section>
+    <div class="sec-head"><div class="no">1</div><h2>动力被选举结果「反向激励」了</h2></div>
+    <p style="color:#c3ccd5;margin-bottom:18px;font-size:14.5px">直觉上吃了败仗该收敛，但海外分析里<b style="color:#fff">加码派的逻辑反而更扎实</b>，三条理由：</p>
+    <div class="motives">
+      <div class="mcard">
+        <div class="ic">⏳</div>
+        <h4>60 天真空期</h4>
+        <p>新国会 2027-01-03 才就职，此前他是不受新国会约束的三军统帅。想做的事要趁现在做完——等民主党开调查、卡拨款就晚了。这是时间窗口的理性计算，不是情绪。</p>
+      </div>
+      <div class="mcard">
+        <div class="ic">🏆</div>
+        <h4>遗产心态 &gt; 问责恐惧</h4>
+        <p>他要的是「快速、可宣传的决定性战果」。一场「夺浓缩铀／重开霍尔木兹」的胜利，正好对冲中期失利叙事，并在问责机器启动前锁定既成事实。</p>
+      </div>
+      <div class="mcard">
+        <div class="ic">📜</div>
+        <h4>历史先例</h4>
+        <p>2006 中期布什惨败，2007 反而搞伊拉克「增兵」。中期失利 → 对外强硬，这个模式有迹可循。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="no">2</div><h2>但他自己的理由，暴露了真正的约束</h2></div>
+    <div class="constraint">
+      <div class="big"><span class="dot"></span>约束不是民主党，是油价</div>
+      <p style="color:#d4dde6;font-size:14.5px">特朗普把败选归咎于<b style="color:#fff">油价／生活成本</b>，不是伊朗战争本身。这句话透露两层含义：</p>
+      <ul>
+        <li>他<b style="color:#fff">不打算在政治上否定对伊政策</b>，所以收手的内在动力不强；</li>
+        <li>但他<b style="color:#fff">知道油价是软肋</b>——霍尔木兹一乱油价就涨，涨了又回灌民怨，形成自我约束。</li>
+      </ul>
+      <div class="quote">「人们认同我对伊朗的做法，只是不满油价。」——他可以打，但打法必须尽量不推高油价，或快速重开霍尔木兹把油价压回去。</div>
+      <p style="margin-top:14px;font-size:14px;color:#c3ccd5">这正是 Berenberg 的 Schmieding 判断「最后一轮打击 + 促成重开霍尔木兹协议」的原因——<span class="hl2">军事目标和经济目标被捆在了一起</span>。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="no">3</div><h2>报复性／非军事措施路径排序</h2></div>
+    <p style="color:#c3ccd5;margin-bottom:16px;font-size:14.5px">把「报复」理解得宽一些，各手段的可能性大致排序如下：</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>手段</th><th style="text-align:center">可能性</th><th>逻辑</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>窗口期一次决定性空袭<br><span style="font-weight:400;color:#9aa7b4;font-size:12.5px">夺浓缩铀／打核设施</span></td>
+            <td class="prob p-hi">高<div class="bar"><i style="width:85%;background:#ff6b6b"></i></div></td>
+            <td>时间窗口 + 遗产心态，且是「一次性」而非持久战</td>
+          </tr>
+          <tr>
+            <td>收紧制裁 / 二级制裁<br><span style="font-weight:400;color:#9aa7b4;font-size:12.5px">打击买伊朗油的实体</span></td>
+            <td class="prob p-hi">高<div class="bar"><i style="width:82%;background:#ff6b6b"></i></div></td>
+            <td>不需国会批准、不推油价、可随时加码，对华也是敲打</td>
+          </tr>
+          <tr>
+            <td>海上封锁 / 拦截油轮<br><span style="font-weight:400;color:#9aa7b4;font-size:12.5px">延续「反封锁」</span></td>
+            <td class="prob p-mh">中高<div class="bar"><i style="width:65%;background:#f0a85a"></i></div></td>
+            <td>已有先例，成本低，但有误伤油价风险</td>
+          </tr>
+          <tr>
+            <td>换人甩锅<br><span style="font-weight:400;color:#9aa7b4;font-size:12.5px">如换掉国防部长 Hegseth</span></td>
+            <td class="prob p-mid">中<div class="bar"><i style="width:50%;background:#e8b84b"></i></div></td>
+            <td>RUSI 的 Reiss 预测，类比布什换拉姆斯菲尔德，属政治报复</td>
+          </tr>
+          <tr>
+            <td>长期大规模地面战</td>
+            <td class="prob p-lo">低<div class="bar"><i style="width:22%;background:#9aa7b4"></i></div></td>
+            <td>国会不愿买单、油价受不了、民意已厌战</td>
+          </tr>
+          <tr>
+            <td>直接推翻德黑兰政权</td>
+            <td class="prob p-lo">低<div class="bar"><i style="width:18%;background:#9aa7b4"></i></div></td>
+            <td>多数分析认为他要「逼伊朗屈服」而非政权更迭，更像「委内瑞拉模式」施压</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="no">4</div><h2>综合判断：最可能的画面</h2></div>
+    <div class="pic">
+      <div class="quote-lg">窗口期内（现在到 1 月初）升级风险是全程最高的——大概率是一次「短促、高烈度、可宣传」的军事行动，配合制裁和海上施压作为报复性抓手；拿到战果后，再借新国会掣肘和油价压力顺势转向谈判降温。</div>
+      <div class="twoline">
+        <div class="mini yes"><b>✔ 他要的是</b>一个能写进政绩、又能在民主党动手前落地的结果。</div>
+        <div class="mini no"><b>✘ 他不要的是</b>一场拖到 2028 大选的战争。</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="no">5</div><h2>最大的两个变量 / 风险点</h2></div>
+    <div class="risks">
+      <div class="rcard">
+        <h4>① 误判风险</h4>
+        <p>Amir Hamidi 警告伊朗别把「一党败选」当成「美国实力衰退」而拒绝让步。一旦德黑兰强硬，特朗普骑虎难下，反而可能越打越深。</p>
+      </div>
+      <div class="rcard">
+        <h4>② 油价失控</h4>
+        <p>真打到霍尔木兹长期断流，油价飙升会直接反噬他的政治生命线。这是唯一能真正按住他的东西。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><div class="no">6</div><h2>落到监控：用指标验证判断</h2></div>
+    <div class="monitor">
+      <h4>strait-monitor 就是这套判断的实时验证器</h4>
+      <ul>
+        <li>窗口期若 <code>WRP</code> / <code>TD3C TCE</code> / 通过量出现<b style="color:#fff">脉冲式跳升</b> → 对应「决定性一击」情景正在发生；</li>
+        <li>若 <code>霍尔木兹 WRP</code> 持续走高且<b style="color:#fff">不回落</b> → 误判／失控风险在兑现的信号；</li>
+        <li>建议这两个月（2026-11 至 2027-01 初）把这几个指标的<b style="color:#fff">更新频率拉高</b>。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    本判断汇编自公开海外机构与媒体分析（Chatham House、Stimson、New Lines、RUSI、Berenberg 等），仅供研判参考，不构成投资建议。<br>
+    延伸阅读：<a href="https://wanghahaniu.github.io/midterm-analysis/" target="_blank">2026 中期选举对伊朗与中美关系海外观点综述 →</a><br>
+    生成：2026-11 · 地缘研判简报
+  </footer>
+
+</div>
+</body>
+</html>
